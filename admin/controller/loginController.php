@@ -21,7 +21,7 @@
             if($username == $value['name'] && $password == $value['password']){
                 header("Location: ../adminpage/dashboard.php");
             }else{
-                header("Location: ../admin/adminLogin.php");
+                header("Location: ../adminLogin.php");
             }
 
         }

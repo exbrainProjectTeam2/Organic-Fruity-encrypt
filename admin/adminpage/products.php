@@ -91,7 +91,7 @@
                                    foreach($result as $key => $value){
                                        echo " <div class='col-3'>";
                                        echo  "  <div class='card ms-3 cardbgs m-4'>";
-                                       echo " <img src='../upload/" .$value['image'].  "' alt='strawberry' min-height='230px !important'  class='p-3 imgs'>" ;
+                                       echo " <img src='../../upload/" .$value['image'].  "' alt='strawberry' min-height='230px !important'  class='p-3 imgs'>" ;
                                        echo " <h5 class='card-title ms-2 fw-bold'>".$value['name']."</h5>";
                                        echo " <small class='card-subtitle ms-2 mb-2 text-muted fw-bold'>".$value['p_id']."</small>";
                                        echo " <p class='m-3'>".$value['description']."</p>";
@@ -108,7 +108,7 @@
                                                echo "<span><i class='fas fa-star fa-sm'></i> </span>";
                                            };
                                         echo "</div>";
-                                        if($value['quantity'] == 17){
+                                        if($value['quantity'] == 0){
                                             echo " <p class='fs-6 m-2 fw-bold'>Quantity : <span class='text-danger'> Out of Stock </span></p>";  
 
                                             echo "</div>";
@@ -208,7 +208,7 @@
 
         <!-- Start Signout Modal -->
 
-	<div id="signout" class="modal">
+        <div id="signout" class="modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

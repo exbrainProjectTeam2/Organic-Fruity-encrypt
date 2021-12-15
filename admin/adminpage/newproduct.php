@@ -133,7 +133,7 @@
                                             <div class="col-6">
                                                 <div class="form-group mt-3">
                                                     <label for="productimage" class="text-dark">Product Image</label>
-                                                    <input type="file" name="productimage"  id="productimage" class="form-control" required >
+                                                    <input type="file" name="productimage"  id="productimage" class="form-control" required accept=".jpg,.png,.gif,.jpeg">
                                                 </div>
                                             </div>
 

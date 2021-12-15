@@ -89,7 +89,7 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <table class="table  text-center" id="table1">
+                                        <table class="table  text-center table-hover" id="table1">
                                             <form action="" method="">
                                             <thead class="fontsizes">
                                                 <tr class="tablescolor">

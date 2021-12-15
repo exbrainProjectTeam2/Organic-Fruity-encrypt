@@ -73,10 +73,10 @@
                         <h4 class="text-dark fw-bold">Customer-Lists</h4>
                         <div class="row">
                             <div class="col-12">
-                                <div class="card">
+                                <div class="card cards">
                                     <div class="card-title d-flex justify-content-end">
                                         <form action="#" method="">
-                                            <div class="mt-3 mb-3">
+                                            <div class="mt-3 mb-3 me-3">
                                                 <input type="text" name="search1" id="search1" class="form-control mx-4" placeholder="Search Name.." autocomplete="off" />
                                                 
                                             </div> 
@@ -91,17 +91,18 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <table class="table bg-light  text-center tables" id="table2">
+                                        <table class="table bg-light  text-center table-hover tables" id="table2">
                                           
                                             <thead class="fontsizes">
+                                               
                                                 <tr class="tablescolor2">
-                                                  
+                                                 
                                                     <td>No</td>
                                                     <td>Name</td>
                                                     <td>Email</td>
                                                     <td>Phone</td>
                                                     <td>Address</td>
-                                                    <td>MemberShip</td>
+                                                    <td>Member</td>
                                                     <td>Total Price</td>
                                                     <td>Rating</td>
                                                     <td>Feedback</td>
@@ -126,7 +127,11 @@
                                                    echo "<td>".$value['phone']."</td>";
                                                    echo "<td>".$value['address']."</td>";
                                                
-                                                  echo "<td>".$value['membership']."</td>";
+                                                   if($value['membership'] == 0){
+                                                    echo "<td>No</td>";
+                                                 }else{
+                                                    echo "<td>Yes</td>";
+                                                 }
                                                   echo "<td>" .number_format($value['total_price'])."</td>";
                                                   echo "<td>";
                                                   $rating =$value['rating'] ;
