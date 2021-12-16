@@ -26,67 +26,70 @@ if(isset($_POST['productname'])){
           echo "ok";
     } else{
             echo "Not Ok";
+
     }
+
+    echo $pname,$pid,$pname,$pcategory,$saleprice,$initprice,$rating,$stock,$pdesc;
+   
+        $db = new DBConnect();
+        $dbconnect = $db->connect();
+    
+        // prepare for insert
+        
+            $sql = $dbconnect->prepare(
+                "INSERT INTO M_Product
+                (
+                name,
+                category,
+                p_id,
+                salePrice,
+                initPrice,
+                rating,
+                quantity,
+                image,
+                description,
+                del_flg,
+                create_date
+                )
+                VALUES
+                (
+                :name,
+                :category,
+                :p_id,
+                :salePrice,
+                :initPrice,
+                :rating,
+                :quantity,
+                :image,
+                :description,
+                :del_flg,
+                :create_date
+                )"
+            );
+        
+            //bind value
+            $sql->bindValue(":name",$pname);
+            $sql->bindValue(":category",$category);
+            $sql->bindValue(":p_id",$pid);
+            $sql->bindValue(":salePrice",$saleprice);
+            $sql->bindValue(":initPrice",$initprice);
+            $sql->bindValue(":rating",$rating);
+            $sql->bindValue(":quantity",$stock);
+            $sql->bindValue(":image",$filename.".".$extension);
+            $sql->bindValue(":description",$pdesc);
+            $sql->bindValue(":del_flg",0);
+            $sql->bindValue(":create_date",date('Y/m/d')); //2021/11/10
+        
+        
+            // //run sql
+            $sql->execute();
+        
     
    
     //  db call
     
-    $db = new DBConnect();
-    $dbconnect = $db->connect();
-
-    // prepare for insert
-    if($pname == "" && $category =="" && $pid =="" && $saleprice != "" && $initprice != "" && $rating <= 5 && $psock != "" && $pdesc == ""){
-        $sql = $dbconnect->prepare(
-            "INSERT INTO M_Product
-            (
-            name,
-            category,
-            p_id,
-            salePrice,
-            initPrice,
-            rating,
-            quantity,
-            image,
-            description,
-            del_flg,
-            create_date
-            )
-            VALUES
-            (
-            :name,
-            :category,
-            :p_id,
-            :salePrice,
-            :initPrice,
-            :rating,
-            :quantity,
-            :image,
-            :description,
-            :del_flg,
-            :create_date
-            )"
-        );
-    
-        //bind value
-        $sql->bindValue(":name",$pname);
-        $sql->bindValue(":category",$category);
-        $sql->bindValue(":p_id",$pid);
-        $sql->bindValue(":salePrice",$saleprice);
-        $sql->bindValue(":initPrice",$initprice);
-        $sql->bindValue(":rating",$rating);
-        $sql->bindValue(":quantity",$stock);
-        $sql->bindValue(":image",$filename.".".$extension);
-        $sql->bindValue(":description",$pdesc);
-        $sql->bindValue(":del_flg",0);
-        $sql->bindValue(":create_date",date('Y/m/d')); //2021/11/10
-    
-    
-        // //run sql
-        $sql->execute();
-    
-    }else{
-        
-    }
+   
+  
    
     // require "newproductcontroller.php";
 }else{
