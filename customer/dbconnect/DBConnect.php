@@ -5,8 +5,8 @@ class DBconnect
     private $hostname = "localhost";
     private $port = 3306;
     private $dbname = "onlineshop";
-    private $username = "admin";
-    private $password = "123456";
+    private $username = "root";
+    private $password = "";
 
     public function connect()
     {
